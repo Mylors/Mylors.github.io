@@ -1,0 +1,300 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 11%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 11%;
+    --muted-foreground: 0 0% 64%;
+    --accent: 0 0% 11%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 0% 83%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", sans-serif;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #444444;
+}
+
+/* Smooth transitions */
+* {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Focus styles */
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* Chart.js custom styles */
+.chartjs-render-monitor {
+  background: transparent !important;
+}
+
+/* Hover effects */
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+/* Animation for completed tasks */
+@keyframes checkmark {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-checkmark {
+  animation: checkmark 0.3s ease-in-out;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card hover effect */
+.card-hover:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Glowing effects */
+.glow {
+  filter: drop-shadow(0 0 10px currentColor);
+}
+
+/* Pulsing animation */
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Floating particles */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 0.8;
+  }
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Floating particles enhanced */
+@keyframes float-enhanced {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+    opacity: 0.3;
+  }
+  33% {
+    transform: translateY(-10px) rotate(120deg) scale(1.1);
+    opacity: 0.7;
+  }
+  66% {
+    transform: translateY(5px) rotate(240deg) scale(0.9);
+    opacity: 0.5;
+  }
+}
+
+.float-enhanced {
+  animation: float-enhanced 4s ease-in-out infinite;
+}
+
+/* Visualizer bars animation */
+@keyframes visualizer {
+  0%,
+  100% {
+    height: 10%;
+  }
+  50% {
+    height: 100%;
+  }
+}
+
+.visualizer-bar {
+  animation: visualizer 0.5s ease-in-out infinite;
+}
+
+/* Real-time visualizer effects */
+.visualizer-bar-live {
+  transition: height 0.05s ease-out;
+}
+
+/* Microphone pulse effect */
+@keyframes mic-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.mic-pulse {
+  animation: mic-pulse 1s ease-in-out infinite;
+}
+
+/* Audio wave effect */
+@keyframes audio-wave {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(1.5);
+  }
+}
+
+.audio-wave {
+  animation: audio-wave 0.3s ease-in-out infinite;
+}
+
+/* Circular visualizer rotation */
+@keyframes rotate-visualizer {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate-visualizer {
+  animation: rotate-visualizer 10s linear infinite;
+}
+
+/* Gradient backgrounds */
+.gradient-purple {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient-pink {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.gradient-blue {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+/* Backdrop blur support */
+.backdrop-blur-custom {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Neon glow effect */
+.neon-glow {
+  text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor;
+}
+
+/* Rotating vinyl */
+@keyframes vinyl-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.vinyl-spin {
+  animation: vinyl-spin 3s linear infinite;
+}
+
+/* Professional chart styling */
+.chart-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.chart-container canvas {
+  border-radius: 8px;
+}
+
+/* Audio analysis cards */
+.analysis-card {
+  background: rgba(17, 24, 39, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(55, 65, 81, 0.5);
+}
+
+.analysis-card:hover {
+  border-color: rgba(139, 92, 246, 0.3);
+  transform: translateY(-1px);
+}
