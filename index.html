@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>∴ Mylors ∴</title>
+<title>Mylors</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&family=Libre+Baskerville:ital@1&family=Major+Mono+Display&display=swap" rel="stylesheet"/>
 <style>
 :root {
@@ -24,31 +24,6 @@ body {
   color: var(--white);
   font-family: 'Syne Mono', monospace;
   overflow-x: hidden;
-  cursor: none;
-}
-
-/* custom cursor */
-.cursor {
-  position: fixed;
-  width: 10px; height: 10px;
-  background: var(--cyan);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.08s, width 0.2s, height 0.2s, background 0.2s;
-  mix-blend-mode: difference;
-}
-.cursor-ring {
-  position: fixed;
-  width: 32px; height: 32px;
-  border: 1px solid var(--cyan);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: transform 0.18s ease, width 0.2s, height 0.2s;
-  opacity: 0.5;
 }
 
 /* scanlines */
@@ -61,14 +36,11 @@ body::before {
   z-index:9000;
 }
 
-
-
 /* ---- HERO ---- */
 header {
   min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding-top: 0px;
   position: relative;
   overflow: hidden;
 }
@@ -134,7 +106,6 @@ header {
 .nav-vertical a .num { color: var(--red); font-size: 0.55rem; }
 .nav-vertical a:hover { color: var(--cyan); gap: 1rem; }
 
-/* big decorative number */
 .hero-deco-num {
   position: absolute;
   bottom: -2rem;
@@ -156,7 +127,6 @@ header {
   overflow: hidden;
 }
 
-/* grid pattern */
 .hero-right::before {
   content:'';
   position:absolute;
@@ -183,7 +153,6 @@ header {
   mix-blend-mode: luminosity;
 }
 
-/* glitch avatar layers */
 .avatar-container::before,
 .avatar-container::after {
   content:'';
@@ -203,18 +172,6 @@ header {
   98%{opacity:0}
 }
 
-.avatar-label {
-  position:absolute;
-  bottom: -2rem;
-  left:50%;
-  transform:translateX(-50%);
-  font-size:0.55rem;
-  letter-spacing:0.3em;
-  color:var(--mid);
-  white-space:nowrap;
-}
-
-/* corner labels */
 .corner {
   position:absolute;
   font-size:0.5rem;
@@ -229,7 +186,6 @@ header {
 /* ---- MAIN ---- */
 main { max-width: 900px; margin: 0 auto; padding: 6rem 2rem; }
 
-/* section header */
 .s-head {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -255,10 +211,7 @@ main { max-width: 900px; margin: 0 auto; padding: 6rem 2rem; }
 
 section { margin-bottom: 7rem; }
 
-/* offset anchor scroll so fixed marquee-bar doesn't cover headings */
-section[id] {
-  scroll-margin-top: 50px;
-}
+section[id] { scroll-margin-top: 50px; }
 
 /* about */
 .about-block {
@@ -292,7 +245,7 @@ section[id] {
 }
 @keyframes pulse { 50%{opacity:0.2} }
 
-/* skills — seamless marquee */
+/* skills */
 .skills-ticker {
   --gap: 3rem;
   position: relative;
@@ -324,7 +277,7 @@ section[id] {
   to   { transform: translateX(calc(-100% - var(--gap))); }
 }
 
-/* projects — asymmetric grid */
+/* projects */
 .projects-grid {
   display:grid;
   grid-template-columns: 2fr 1fr;
@@ -423,18 +376,6 @@ footer {
   -webkit-text-stroke:1px #222244;
 }
 
-/* responsive */
-@media(max-width:700px){
-  header{grid-template-columns:1fr;min-height:auto;}
-  .hero-right{height:280px;}
-  .hero-left{padding:3rem 1.5rem;}
-  .hero-deco-num{font-size:8rem;}
-  .about-block{grid-template-columns:1fr;}
-  .projects-grid{grid-template-columns:1fr;}
-  .p-card:first-child{grid-row:auto;}
-  .contact-grid{grid-template-columns:1fr;}
-}
-
 /* glitch text */
 .glitch-text {
   position: relative;
@@ -456,17 +397,31 @@ footer {
   animation: glitch-bot 3s infinite;
   clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
 }
+@keyframes glitch-top {
+  0%,92%,100%{transform:none;opacity:0}
+  93%{transform:translate(-3px,0);opacity:0.7}
+  96%{transform:translate(2px,0);opacity:0.5}
+}
+@keyframes glitch-bot {
+  0%,88%,100%{transform:none;opacity:0}
+  90%{transform:translate(3px,0);opacity:0.7}
+  94%{transform:translate(-2px,0);opacity:0.4}
+}
 
-
-
+/* responsive */
+@media(max-width:700px){
+  header{grid-template-columns:1fr;min-height:auto;}
+  .hero-right{height:280px;}
+  .hero-left{padding:3rem 1.5rem;}
+  .hero-deco-num{font-size:8rem;}
+  .about-block{grid-template-columns:1fr;}
+  .projects-grid{grid-template-columns:1fr;}
+  .p-card:first-child{grid-row:auto;}
+  .contact-grid{grid-template-columns:1fr;}
+}
 </style>
-
 </head>
 <body>
-
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
 
 <!-- HERO -->
 <header>
@@ -500,7 +455,6 @@ footer {
         src="https://i.pinimg.com/originals/a5/72/86/a5728664014feb0863f26a7d64a1bd77.gif"
         alt="avatar"
         onerror="this.style.background='#111133'"/>
-
     </div>
   </div>
 </header>
@@ -529,28 +483,28 @@ footer {
     </div>
   </section>
 
-<section id="skills">
-  <div class="s-head">
-    <div class="s-num">02</div>
-    <div class="s-title">habilidades</div>
-  </div>
-  <div class="skills-ticker">
-    <div class="skills-track">
-      <span>HTML</span> · CSS · <span>JavaScript</span> · React · <span>Node.js</span> · Python · <span>Figma</span> · Git · <span>diseño UI</span> ·
+  <section id="skills">
+    <div class="s-head">
+      <div class="s-num">02</div>
+      <div class="s-title">habilidades</div>
     </div>
-    <div class="skills-track" aria-hidden="true">
-      <span>HTML</span> · CSS · <span>JavaScript</span> · React · <span>Node.js</span> · Python · <span>Figma</span> · Git · <span>diseño UI</span> ·
+    <div class="skills-ticker">
+      <div class="skills-track">
+        <span>HTML</span> · CSS · <span>JavaScript</span> · React · <span>Node.js</span> · Python · <span>Figma</span> · Git · <span>diseño UI</span> ·
+      </div>
+      <div class="skills-track" aria-hidden="true">
+        <span>HTML</span> · CSS · <span>JavaScript</span> · React · <span>Node.js</span> · Python · <span>Figma</span> · Git · <span>diseño UI</span> ·
+      </div>
     </div>
-  </div>
-  <div class="skills-ticker skills-ticker--reverse" style="margin-top:0.5rem;">
-    <div class="skills-track">
-      <span>TypeScript</span> · SQL · <span>Photoshop</span> · <span>fotografía</span> · video · <span>edición</span> ·
+    <div class="skills-ticker skills-ticker--reverse" style="margin-top:0.5rem;">
+      <div class="skills-track">
+        <span>TypeScript</span> · SQL · <span>Photoshop</span> · <span>fotografía</span> · video · <span>edición</span> ·
+      </div>
+      <div class="skills-track" aria-hidden="true">
+        <span>TypeScript</span> · SQL · <span>Photoshop</span> · <span>fotografía</span> · video · <span>edición</span> ·
+      </div>
     </div>
-    <div class="skills-track" aria-hidden="true">
-      <span>TypeScript</span> · SQL · <span>Photoshop</span> · <span>fotografía</span> · video · <span>edición</span> ·
-    </div>
-  </div>
-</section>
+  </section>
 
   <section id="projects">
     <div class="s-head">
@@ -568,6 +522,7 @@ footer {
           <span class="p-tag"> </span>
         </div>
       </div>
+    </div>
   </section>
 
   <section id="contact">
@@ -578,15 +533,15 @@ footer {
     <div class="contact-grid">
       <div class="c-item">
         <span class="c-label">email</span>
-        <span class="c-val"><a href="mailto:maylorlab@gmail.com"><span class="__cf_email__" data-cfemail="b1c5c4f1d4dcd0d8dd9fd2dedc">[email&#160;protected]</span></a></span>
+        <span class="c-val"><a href="/cdn-cgi/l/email-protection#0964687065667b65686b496e64686065276a6664"><span class="__cf_email__" data-cfemail="b1c5c4f1d4dcd0d8dd9fd2dedc">[email&#160;protected]</span></a></span>
       </div>
       <div class="c-item">
         <span class="c-label">github</span>
         <span class="c-val"><a href="https://github.com/Mylors" target="_blank">@Mylors</a></span>
       </div>
       <div class="c-item">
-       <span class="c-label">linkedin</span>
-<span class="c-val glitch-text" data-text="???"><a href="https://linkedin.com/in/mylorss/">???</a></span>
+        <span class="c-label">linkedin</span>
+        <span class="c-val glitch-text" data-text="???"><a href="https://linkedin.com/in/mylorss/">???</a></span>
       </div>
       <div class="c-item">
         <span class="c-label">discord</span>
@@ -599,26 +554,69 @@ footer {
 
 <footer>
   <span>© 2026 · Mylors</span>
-  <span class="footer-sig">∴</span>
+  <span class="footer-sig">—</span>
   <span>hecho con insomnio</span>
 </footer>
 
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
-  // custom cursor
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursorRing');
-  let mx=0,my=0,rx=0,ry=0;
-  document.addEventListener('mousemove', e=>{
-    mx=e.clientX; my=e.clientY;
-    cursor.style.left=mx+'px';
-    cursor.style.top=my+'px';
+gsap.registerPlugin(ScrollTrigger);
+
+// ── HERO ENTRANCE ────────────────────────────────────────────────────
+const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+tl
+  .from('.hero-eyebrow',  { opacity: 0, y: -12, duration: 0.5 })
+  .from('.hero-name',     { opacity: 0, y: 30,  duration: 0.7 }, '-=0.2')
+  .from('.hero-sub',      { opacity: 0, y: 16,  duration: 0.5 }, '-=0.3')
+  .from('.nav-vertical a',{ opacity: 0, x: -14, duration: 0.4, stagger: 0.08 }, '-=0.2')
+  .from('.avatar-container', { opacity: 0, scale: 0.94, duration: 0.7, ease: 'power2.out' }, '-=0.4')
+  .from('.corner',        { opacity: 0, duration: 0.4, stagger: 0.06 }, '-=0.5');
+
+// ── SCROLL REVEALS ───────────────────────────────────────────────────
+gsap.utils.toArray('.s-head').forEach(el => {
+  gsap.from(el, {
+    opacity: 0, x: -24, duration: 0.6, ease: 'power2.out',
+    scrollTrigger: { trigger: el, start: 'top 82%' }
   });
-  function animRing(){
-    rx+=(mx-rx)*0.12;
-    ry+=(my-ry)*0.12;
-    ring.style.left=rx+'px';
-    ring.style.top=ry+'px';
-    requestAnimationFrame(animRing);
+});
+
+gsap.from('.about-text', {
+  opacity: 0, y: 20, duration: 0.6,
+  scrollTrigger: { trigger: '.about-block', start: 'top 80%' }
+});
+
+gsap.from('.status-box', {
+  opacity: 0, y: 20, duration: 0.6, delay: 0.1,
+  scrollTrigger: { trigger: '.about-block', start: 'top 80%' }
+});
+
+gsap.from('.p-card', {
+  opacity: 0, y: 28, duration: 0.55, stagger: 0.1, ease: 'power2.out',
+  scrollTrigger: { trigger: '.projects-grid', start: 'top 82%' }
+});
+
+gsap.from('.c-item', {
+  opacity: 0, y: 20, duration: 0.45, stagger: 0.07, ease: 'power2.out',
+  scrollTrigger: { trigger: '.contact-grid', start: 'top 84%' }
+});
+
+gsap.from('footer', {
+  opacity: 0, duration: 0.5,
+  scrollTrigger: { trigger: 'footer', start: 'top 95%' }
+});
+
+// ── HERO DECO PARALLAX ───────────────────────────────────────────────
+gsap.to('.hero-deco-num', {
+  y: -80, ease: 'none',
+  scrollTrigger: {
+    trigger: 'header',
+    start: 'top top',
+    end: 'bottom top',
+    scrub: 1.5
   }
-  animRing();
+});
 </script>
+</body>
+</html>
