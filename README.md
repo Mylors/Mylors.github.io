@@ -1,10 +1,9 @@
-# ∴ mylors · portfolio
+# mylors · portfolio
 
 ![status](https://img.shields.io/badge/status-online-00ffe1?style=flat-square)
 ![made with](https://img.shields.io/badge/made%20with-html%20%2F%20css%20%2F%20js-ff2d55?style=flat-square)
 ![license](https://img.shields.io/badge/license-mit-444466?style=flat-square)
 
-> portfolio personal.
 
 **→ [mylors.github.io](https://mylors.github.io/)**
 
@@ -16,14 +15,3 @@
 - fuentes: Major Mono Display · Syne Mono · Libre Baskerville
 - sin frameworks, sin dependencias
 
-## features
-
-- seamless infinite marquee
-- custom cursor con anillo animado
-- glitch effects
-- scanlines overlay
-- diseño responsive
-
----
-
-*∴ en construcción permanente*
